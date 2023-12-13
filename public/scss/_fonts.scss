@@ -1,0 +1,36 @@
+
+@font-face {
+	font-family: 'brix';
+	src: url('/fonts/BrixSansLight-Italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'brix';
+	src: url('/fonts/BrixSansLight.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'exquise';
+	src: url('/fonts/ExquiseFY-Italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'exquise';
+	src: url('/fonts/ExquiseFY-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@mixin fontTitle {
+	font-family: "exquise", sans-serif;
+}
+@mixin fontRegular {
+	font-family: "brix", sans-serif;
+}

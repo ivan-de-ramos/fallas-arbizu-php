@@ -1,0 +1,117 @@
+@mixin hide-semantic {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px); /* for Internet Explorer */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+@mixin hide-txt { 
+	overflow: hidden;
+	display: inline-block;
+	text-indent: -9999px;
+}
+
+@mixin transition {
+	transition: color 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+@mixin wide($wide) {
+	@media only screen and (max-width: $wide) {
+		@content;
+	}
+}
+@mixin regular {
+	@media only screen and (max-width: 1200px) {
+		@content;
+	}
+}
+@mixin tablet {
+	@media only screen and (max-width: 800px) {
+		@content;
+	}
+}
+@mixin mobile {
+	@media only screen and (max-width: 560px) {
+		@content;
+	}
+}
+@mixin app {
+	@media only screen and (max-width: 370px) {
+		@content;
+	}
+}
+@mixin no-tablet {
+	@media only screen and (min-width: 800px) {
+		@content;
+	}
+}
+@mixin no-mobile {
+	@media only screen and (min-width: 560px) {
+		@content;
+	}
+}
+@mixin landscape {
+	@media (orientation: landscape) {
+		@content;
+	}
+}
+@mixin retina {
+	@media
+		only screen and (-webkit-min-device-pixel-ratio: 2),
+		only screen and (min--moz-device-pixel-ratio: 2),
+		only screen and (-o-min-device-pixel-ratio: 2/1),
+		only screen and (min-device-pixel-ratio: 2),
+		only screen and (min-resolution: 192dpi),
+		only screen and (min-resolution: 2dppx) {
+		@content;
+	}
+}
+
+@mixin hoverpro {
+	@media only screen and (min-width: 900px) {
+		&:hover {
+			@content;
+		}
+	}
+}
+@mixin text-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@function negro($opacity){
+	@return rgba(0,0,0,$opacity);
+}
+@function blanco($opacity){
+	@return rgba(255,255,255,$opacity);
+}
+@function gris-oscuro($claro){
+	@return lighten($negro, $claro);
+}
+@function gris-claro($oscuro){
+	@return darken($blanco, $oscuro);
+}
+
+
+@mixin fontSize($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}
+@mixin font-size-title($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}
+@mixin show($delay) {
+	@include transicion;
+	transition-delay: $delay;
+	opacity: 0;
+	transform: translateY(-30px);
+	&.visible {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}

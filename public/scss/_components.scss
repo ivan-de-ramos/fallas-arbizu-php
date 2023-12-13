@@ -1,0 +1,182 @@
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: $blanco;
+	a {
+		text-decoration: none;
+	}
+	.nav {
+		padding: 10px 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.logo {
+			a {
+				display: flex;
+				align-items: center;
+			}
+			svg {
+				width: auto;
+				height: 30px;
+				margin-right: 7px;
+			}
+			span {
+				display: flex;
+				align-items: center;
+				text-transform: uppercase;
+				.name {
+					font-size: 1.2em;
+				}
+				.services {
+					font-size: 0.7em;
+					letter-spacing: 0.14em;
+					margin-left: 10px;
+					position: relative;
+					bottom: -3px;
+				}
+			}
+		}
+		nav {
+			ul {
+				display: flex;
+				gap: 1em;
+				a {
+					text-transform: uppercase;
+					font-size: 0.8em;
+					color: $negro;
+					@include hoverpro {
+						color: $azul;
+					}
+				}
+			}
+		}
+	}
+}
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 30px;
+	background-color: $blanco;
+}
+.redes {
+	ul {
+		display: flex;
+		gap: 1em;
+		font-size: 0.8em;
+		justify-content: flex-end;
+		li {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+			text-transform: uppercase;
+			color: $negro;
+			@include hoverpro {
+				color: $azul;
+			}
+		}
+	}
+}
+.gallery {
+	.image {
+		opacity: 0;
+		transform: translateY(100px);
+		transition: transform 0.3s ease-out 0.3s, opacity 0.3s ease-out 0.3s;
+		@for $i from 1 through 100 {
+			&:nth-child(#{$i}) {
+				transition-delay: calc((random(60) / 100)) + s;
+			}
+		}	
+		&.visible {
+			opacity: 1;
+			transform: translateY(0px);
+		}
+		img {
+			width: 100%;
+			height: auto;
+			transition: transform 0.3s ease-out;
+		}
+		a {
+			display: block;
+			position: relative;
+			overflow: hidden;
+			
+			p {
+				position: absolute;
+				inset: 0;
+				background-color: rgba(77, 89, 69, 0.9);
+				color: $blanco;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				transition: padding 0.3s ease-out, opacity 0.3s ease-out;
+				opacity: 0;
+				padding-top: 100px;
+				@include fontTitle;
+				span {
+					display: block;
+					margin-top: -8px;
+					font-weight: lighter;
+					font-size: 0.8em;
+					@include fontRegular;
+				}
+			}
+			@include hoverpro {
+				p {
+					opacity: 1;
+					padding: 0;
+				}
+				img {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+}
+.grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 10px;
+	position: relative;
+	.column-1 {
+		grid-column: span 1;
+	}
+	.column-2 {
+		grid-column: span 2;
+	}
+	.column-3 {
+		grid-column: span 3;
+	}
+	.column-4 {
+		grid-column: span 4;
+	}
+	.column-5 {
+		grid-column: span 5;
+	}
+	.column-6 {
+		grid-column: span 6;
+	}
+	.column-7 {
+		grid-column: span 7;
+	}
+	.column-8 {
+		grid-column: span 8;
+	}
+	.column-9 {
+		grid-column: span 9;
+	}
+	.column-10 {
+		grid-column: span 10;
+	}
+	.column-11 {
+		grid-column: span 11;
+	}
+	.column-12 {
+		grid-column: span 12;
+	}
+}

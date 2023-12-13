@@ -1,0 +1,114 @@
+/* Color */
+$azul-muyoscuro: darken(#7F9272, 40%);
+$azul-oscuro: darken(#7F9272, 20%);
+$azul: #7F9272;
+$azul-claro: #F7FFF0;
+$blanco: #fff;
+$negro: #000;
+
+ 
+::-moz-selection { color: $blanco;  background: $azul; }
+::selection      { color: $blanco;  background: $azul; }
+* {
+	&::-webkit-scrollbar {
+		width: 16px;
+		height: 16px;
+	}
+	&::-webkit-scrollbar-track {
+		box-shadow: none;
+		background: $azul;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $azul-oscuro;
+		border: 0px solid $azul-oscuro; 
+	}
+}
+
+/* Lenis */
+html.lenis {
+	height: auto;
+}
+.lenis.lenis-smooth {
+	scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+	overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+	pointer-events: none;
+}
+
+/*	General	*/
+
+html,
+body {
+	height: 100%; 
+}
+body {
+	background-color: $blanco;
+	color: $negro;
+	font-size: 16px;
+	@include fontRegular;
+	font-weight: 400;
+	@include mobile {
+		font-size: 14px;
+	}
+}
+.all {
+	max-width: 1600px;
+	margin: 0 auto;
+}
+a {
+	cursor: pointer;
+	outline: none;
+	color: $azul;
+	@include transition;
+	@include hoverpro {
+		color: $negro;
+	}
+}
+a img {
+	@include transition;
+}
+h1, h2, h3, h4 {
+	font-weight: normal;
+	line-height: 110%;
+	@include fontTitle;
+	margin-bottom: 0.2em;
+	text-wrap: balance;
+}
+p {
+	font-size: 1.4em;
+	line-height: 130%;
+	text-wrap: balance;
+	b, strong {
+		font-weight: 600;
+	}
+}
+p + p {
+	margin-top: 1em;
+}
+.title {
+	font-size: 2.6em;
+	font-weight: lighter;
+}
+.subtitle {
+	font-size: 2em;
+	font-weight: lighter;
+}
+.text {
+	ul {
+		margin-block: 1em;
+		padding-left: 1em;
+		li {
+			font-size: 1.1em;
+			line-height: 130%;
+			+li {
+				margin-top: 0.4em;
+			}
+		}
+	}
+}
